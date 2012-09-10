@@ -1,0 +1,7 @@
+parameters:
+#    sim.example.class: Um\SimBundle\Example
+
+services:
+#    sim.example:
+#        class: %sim.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
