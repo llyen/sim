@@ -1,14 +1,14 @@
 <?php
-# src/Um/SimBundle/Entity/Objects.php
+# src/Um/SimBundle/Entity/Roles.php
 namespace Um\SimBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="objects")
+ * @ORM\Table(name="roles")
  */
-class Objects
+class Roles
 {
 	/**
      * @ORM\Id
@@ -18,18 +18,7 @@ class Objects
 	protected $id;
 
 	/**
-	 * @ORM\ManyToOne(targetEntity="Units")
-	 * @ORM\JoinColumn(name="unit_id", referencedColumnName="id")
-	 */
-	protected $unit;
-
-	/**
 	 * @ORM\Column(type="string", length=100, nullable=false)
 	 */
 	protected $name;
-
-	/**
-	 * @ORM\Column(type="string", length=255, nullable=false)
-	 */
-	protected $address;
 }
