@@ -162,6 +162,11 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
             return array (  '_controller' => 'Um\\SimBundle\\Controller\\UsersController::indexAction',  '_route' => 'sim_homepage',);
         }
 
+        // sim
+        if ($pathinfo === '/sim') {
+            return array (  '_controller' => 'Um\\SimBundle\\Controller\\DefaultController::indexAction',  '_route' => 'sim',);
+        }
+
         // login
         if ($pathinfo === '/login') {
             return array (  '_controller' => 'Um\\SimBundle\\Controller\\UsersController::loginAction',  '_route' => 'login',);

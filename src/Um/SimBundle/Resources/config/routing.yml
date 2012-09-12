@@ -2,6 +2,10 @@ sim_homepage:
     pattern:  /
     defaults: { _controller: SimBundle:Users:index }
 
+sim:
+    pattern: /sim
+    defaults: { _controller: SimBundle:Default:index }
+
 login:
     pattern: /login
     defaults: { _controller: SimBundle:Users:login }
