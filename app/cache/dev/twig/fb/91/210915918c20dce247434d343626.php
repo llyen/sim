@@ -7,18 +7,28 @@ class __TwigTemplate_fb91210915918c20dce247434d343626 extends Twig_Template
     {
         parent::__construct($env);
 
-        $this->parent = false;
+        $this->parent = $this->env->loadTemplate("::base.html.twig");
 
         $this->blocks = array(
+            'body' => array($this, 'block_body'),
         );
+    }
+
+    protected function doGetParent(array $context)
+    {
+        return "::base.html.twig";
     }
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        // line 1
-        echo "Hello ";
-        echo twig_escape_filter($this->env, $this->getContext($context, "name"), "html", null, true);
-        echo "!
+        $this->parent->display($context, array_merge($this->blocks, $blocks));
+    }
+
+    // line 3
+    public function block_body($context, array $blocks = array())
+    {
+        // line 4
+        echo "Hello world!
 ";
     }
 
@@ -34,6 +44,6 @@ class __TwigTemplate_fb91210915918c20dce247434d343626 extends Twig_Template
 
     public function getDebugInfo()
     {
-        return array (  17 => 1,);
+        return array (  29 => 4,  26 => 3,);
     }
 }

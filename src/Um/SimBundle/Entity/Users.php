@@ -3,12 +3,13 @@
 namespace Um\SimBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="Um\SimBundle\Entity\UsersRepository")
  * @ORM\Table(name="users")
  */
-class Users
+class Users implements UserInterface
 {
 	/**
      * @ORM\Id
@@ -32,10 +33,68 @@ class Users
 	/**
 	 * @ORM\Column(type="string", length=100, nullable=false, unique=true)
 	 */
-	protected $login;
+	protected $username;
 
 	/**
 	 * @ORM\Column(type="string", length=100, nullable=false)
 	 */
 	protected $password;
+
+	/**
+	 * @ORM\Column(type="string", length=100)
+	 */
+	protected $salt;
+
+	/**
+	 * @ORM\Column(name="is_active", type="boolean")
+	 */
+	protected $isActive;
+
+
+    public function __construct()
+    {
+        $this->isActive = true;
+        $this->salt = md5(uniqid(null, true));
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getUsername()
+    {
+        return $this->username;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getSalt()
+    {
+        return $this->salt;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getPassword()
+    {
+        return $this->password;
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function getRoles()
+    {
+        return array('ROLE_USER');
+    }
+
+    /**
+     * @inheritDoc
+     */
+    public function eraseCredentials()
+    {
+
+    }
+    
 }

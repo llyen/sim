@@ -25,15 +25,6 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         $allow = array();
         $pathinfo = rawurldecode($pathinfo);
 
-        // _welcome
-        if (rtrim($pathinfo, '/') === '') {
-            if (substr($pathinfo, -1) !== '/') {
-                return $this->redirect($pathinfo.'/', '_welcome');
-            }
-
-            return array (  '_controller' => 'Acme\\DemoBundle\\Controller\\WelcomeController::indexAction',  '_route' => '_welcome',);
-        }
-
         // _demo_login
         if ($pathinfo === '/demo/secured/login') {
             return array (  '_controller' => 'Acme\\DemoBundle\\Controller\\SecuredController::loginAction',  '_route' => '_demo_login',);
@@ -163,8 +154,27 @@ class appdevUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirectab
         }
 
         // sim_homepage
-        if (0 === strpos($pathinfo, '/hello') && preg_match('#^/hello/(?<name>[^/]+)$#s', $pathinfo, $matches)) {
-            return array_merge($this->mergeDefaults($matches, array (  '_controller' => 'Um\\SimBundle\\Controller\\DefaultController::indexAction',)), array('_route' => 'sim_homepage'));
+        if (rtrim($pathinfo, '/') === '') {
+            if (substr($pathinfo, -1) !== '/') {
+                return $this->redirect($pathinfo.'/', 'sim_homepage');
+            }
+
+            return array (  '_controller' => 'Um\\SimBundle\\Controller\\UsersController::indexAction',  '_route' => 'sim_homepage',);
+        }
+
+        // login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Um\\SimBundle\\Controller\\UsersController::loginAction',  '_route' => 'login',);
+        }
+
+        // login_check
+        if ($pathinfo === '/login_check') {
+            return array('_route' => 'login_check');
+        }
+
+        // logout
+        if ($pathinfo === '/logout') {
+            return array('_route' => 'logout');
         }
 
         throw 0 < count($allow) ? new MethodNotAllowedException(array_unique($allow)) : new ResourceNotFoundException();
