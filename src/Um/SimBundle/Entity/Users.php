@@ -70,7 +70,7 @@ class Users implements UserInterface
      */
     public function getSalt()
     {
-        return $this->salt;
+        return "";//return $this->salt;
     }
 
     /**
@@ -96,5 +96,5 @@ class Users implements UserInterface
     {
 
     }
-    
+
 }

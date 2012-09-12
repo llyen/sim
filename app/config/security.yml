@@ -26,23 +26,27 @@ security:
         users_area:
             pattern: ^/
             anonymous: ~
-            form_login: ~
+            form_login:
+                check_path: /login_check
+                login_path: /login
+                default_target_path: /sim
+            logout:
+                path: /logout
+                target: /
         dev:
             pattern:  ^/(_(profiler|wdt)|css|images|js)/
             security: false
 
-        login:
-            pattern:  ^/demo/secured/login$
-            security: false
+        #login:
+        #    pattern:  ^/demo/secured/login$
+        #    security: false
 
-        secured_area:
-            pattern:    ^/demo/secured/
-            form_login:
-                check_path: /demo/secured/login_check
-                login_path: /demo/secured/login
-            logout:
-                path:   /demo/secured/logout
-                target: /demo/
+        #secured_area:
+        #    pattern:    ^/
+        #    form_login: ~
+        #    logout:
+        #        path:   /logout
+        #        target: /
             #anonymous: ~
             #http_basic:
             #    realm: "Secured Demo Area"

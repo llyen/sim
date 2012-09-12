@@ -34,6 +34,11 @@ class appprodUrlMatcher extends Symfony\Bundle\FrameworkBundle\Routing\Redirecta
             return array (  '_controller' => 'Um\\SimBundle\\Controller\\UsersController::indexAction',  '_route' => 'sim_homepage',);
         }
 
+        // login
+        if ($pathinfo === '/login') {
+            return array (  '_controller' => 'Um\\SimBundle\\Controller\\UsersController::loginAction',  '_route' => 'login',);
+        }
+
         // login_check
         if ($pathinfo === '/login_check') {
             return array('_route' => 'login_check');

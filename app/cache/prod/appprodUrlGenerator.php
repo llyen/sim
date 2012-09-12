@@ -14,6 +14,7 @@ class appprodUrlGenerator extends Symfony\Component\Routing\Generator\UrlGenerat
 {
     static private $declaredRoutes = array(
         'sim_homepage' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Um\\SimBundle\\Controller\\UsersController::indexAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/',    ),  ),),
+        'login' => array (  0 =>   array (  ),  1 =>   array (    '_controller' => 'Um\\SimBundle\\Controller\\UsersController::loginAction',  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/login',    ),  ),),
         'login_check' => array (  0 =>   array (  ),  1 =>   array (  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/login_check',    ),  ),),
         'logout' => array (  0 =>   array (  ),  1 =>   array (  ),  2 =>   array (  ),  3 =>   array (    0 =>     array (      0 => 'text',      1 => '/logout',    ),  ),),
     );
