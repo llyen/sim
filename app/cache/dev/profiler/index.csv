@@ -249,3 +249,8 @@
 50506b1cb0000,::1,GET,https://localhost/sim/web/app_dev.php/login,1347447580,
 50506b1e19afd,::1,GET,https://localhost/sim/web/app_dev.php/sim,1347447582,
 50506b1f3eef6,::1,GET,https://localhost/sim/web/app_dev.php/,1347447583,
+50507a7557f14,::1,GET,https://localhost/sim/web/app_dev.php/,1347451509,
+50507a7b435da,::1,POST,https://localhost/sim/web/app_dev.php/login_check,1347451515,
+50507a7f698a8,::1,GET,https://localhost/sim/web/app_dev.php/sim,1347451519,
+50507a84c605a,::1,GET,https://localhost/sim/web/app_dev.php/logout,1347451524,
+50507a872ae79,::1,GET,https://localhost/sim/web/app_dev.php/,1347451527,
